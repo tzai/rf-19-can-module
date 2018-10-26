@@ -39,7 +39,7 @@ PrefsRevisionGUID=
 
 [Document1]
 DocumentPath=RF19_Sensor_CAN_Module_MCU.SchDoc
-AnnotationEnabled=1
+AnnotationEnabled=0
 AnnotateStartValue=200
 AnnotationIndexControlEnabled=1
 AnnotateSuffix=
@@ -56,7 +56,7 @@ DocumentUniqueId=NRELBGAO
 
 [Document2]
 DocumentPath=RF19_Sensor_CAN_Module_Power.SchDoc
-AnnotationEnabled=1
+AnnotationEnabled=0
 AnnotateStartValue=300
 AnnotationIndexControlEnabled=1
 AnnotateSuffix=

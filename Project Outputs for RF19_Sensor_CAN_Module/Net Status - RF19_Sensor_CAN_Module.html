@@ -1,0 +1,470 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 { 
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body { 
+			font-family : segoe ui;
+		}
+
+		td, th {  
+			padding: 0.5em;
+			text-align : left;
+		}
+		th { 
+			background-color : #EEEEEE;
+		
+		}
+		th.column1, td.column1 { 
+			width : 50%; 
+		}
+
+        th.column2, td.column2 {
+            width : 25%;
+        }
+
+		table { 
+			width : 100%; 
+            font-size: 0.9em;
+		}
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 5em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error { 
+			color : red;
+			font-weight : bold;
+		}	
+		tr.onmouseout_odd { 
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+			
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);		
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {	
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}	
+	</script><title>Net Status Report</title>
+</head>
+<body onload="document.getElementById('radio_mil').click()"><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD18\Templates\AD_logo.png
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Net Status Report</h1>
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2018-10-27</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">7:36:48 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc" class="file"><acronym title="C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc">C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc</acronym></a></td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Units:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">
+<form><input type="radio" name="radio_units" id="radio_mm" onclick="changeUnits(this, 'mm')">mm<input type="radio" name="radio_units" id="radio_mil" onclick="changeUnits(this, 'mil')">mils</form>
+</td>
+</tr>
+</table><a name="IDVPRDYC5VSURJKRCTBB1PPWOAQNZZHW0KIWNFQXPEYST1UGPV1VTM"><table>
+<tr>
+<th class="column1">Nets</th>
+<th class="column2">Layer</th>
+<th class="column3">Length</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.01mil|Location2.X=3932.028mil|Location1.Y=2035.033mil|Location2.Y=2811.28mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.01mil|Location2.X=3932.028mil|Location1.Y=2035.033mil|Location2.Y=2811.28mil|Absolute=True">+5V</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="3270933">327.093mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567mil|Location2.X=1808.738mil|Location1.Y=2267mil|Location2.Y=2336.122mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567mil|Location2.X=1808.738mil|Location1.Y=2267mil|Location2.Y=2336.122mil|Absolute=True">+VIN</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1735mil|Location2.X=2049.679mil|Location1.Y=2283.878mil|Location2.Y=2524.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1735mil|Location2.X=2049.679mil|Location1.Y=2283.878mil|Location2.Y=2524.248mil|Absolute=True">+VIN_F</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="320472">32.047mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567.973mil|Location2.X=3908.327mil|Location1.Y=1977.507mil|Location2.Y=3324.612mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567.973mil|Location2.X=3908.327mil|Location1.Y=1977.507mil|Location2.Y=3324.612mil|Absolute=True">CANH</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567.973mil|Location2.X=3908.327mil|Location1.Y=2028.688mil|Location2.Y=3370.518mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567.973mil|Location2.X=3908.327mil|Location1.Y=2028.688mil|Location2.Y=3370.518mil|Absolute=True">CANL</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3061.885mil|Location2.X=3908.327mil|Location1.Y=2600mil|Location2.Y=3269.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3061.885mil|Location2.X=3908.327mil|Location1.Y=2600mil|Location2.Y=3269.311mil|Absolute=True">CAN_EN#</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3103.76mil|Location1.Y=2430.689mil|Location2.Y=2679.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3103.76mil|Location1.Y=2430.689mil|Location2.Y=2679.311mil|Absolute=True">CAN_RX</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3103.76mil|Location1.Y=2462.185mil|Location2.Y=2829.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3103.76mil|Location1.Y=2462.185mil|Location2.Y=2829.311mil|Absolute=True">CAN_TX</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567mil|Location2.X=3932.028mil|Location1.Y=1985.663mil|Location2.Y=2833.387mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1567mil|Location2.X=3932.028mil|Location1.Y=1985.663mil|Location2.Y=2833.387mil|Absolute=True">GND</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2094.429mil|Location2.X=3522.331mil|Location1.Y=1985.663mil|Location2.Y=3414.775mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2094.429mil|Location2.X=3522.331mil|Location1.Y=1985.663mil|Location2.Y=3414.775mil|Absolute=True">NetC101_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.171mil|Location2.X=3061.161mil|Location1.Y=2687.579mil|Location2.Y=2833.387mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.171mil|Location2.X=3061.161mil|Location1.Y=2687.579mil|Location2.Y=2833.387mil|Absolute=True">NetC200_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="1574734">157.473mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.776mil|Location2.X=2915.516mil|Location1.Y=2271.427mil|Location2.Y=2420.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.776mil|Location2.X=2915.516mil|Location1.Y=2271.427mil|Location2.Y=2420.925mil|Absolute=True">NetC203_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.813mil|Location2.X=2168.797mil|Location1.Y=2439.823mil|Location2.Y=2663.445mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.813mil|Location2.X=2168.797mil|Location1.Y=2439.823mil|Location2.Y=2663.445mil|Absolute=True">NetC300_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="2366819">236.682mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.813mil|Location2.X=2076.514mil|Location1.Y=2575.965mil|Location2.Y=2663.445mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.813mil|Location2.X=2076.514mil|Location1.Y=2575.965mil|Location2.Y=2663.445mil|Absolute=True">NetC300_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="530218">53.022mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.264mil|Location2.X=3222.972mil|Location1.Y=2288.853mil|Location2.Y=2465.669mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2982.264mil|Location2.X=3222.972mil|Location1.Y=2288.853mil|Location2.Y=2465.669mil|Absolute=True">NetJ100_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2950.768mil|Location2.X=3270mil|Location1.Y=2115.689mil|Location2.Y=2920mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2950.768mil|Location2.X=3270mil|Location1.Y=2115.689mil|Location2.Y=2920mil|Absolute=True">NetJ100_4</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.608mil|Location2.X=3908.327mil|Location1.Y=2810.464mil|Location2.Y=3419.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.608mil|Location2.X=3908.327mil|Location1.Y=2810.464mil|Location2.Y=3419.311mil|Absolute=True">NetR102_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2309.88mil|Location2.X=2630mil|Location1.Y=2032.082mil|Location2.Y=2293.73mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2309.88mil|Location2.X=2630mil|Location1.Y=2032.082mil|Location2.Y=2293.73mil|Absolute=True">NetR202_2</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.01mil|Location2.X=1991.632mil|Location1.Y=2575.965mil|Location2.Y=2698.878mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1963.01mil|Location2.X=1991.632mil|Location1.Y=2575.965mil|Location2.Y=2698.878mil|Absolute=True">NetR300_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="874017">87.402mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1879.545mil|Location2.X=1991.632mil|Location1.Y=2467.657mil|Location2.Y=2516.004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1879.545mil|Location2.X=1991.632mil|Location1.Y=2467.657mil|Location2.Y=2516.004mil|Absolute=True">NetR302_1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="887809">88.781mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2430.689mil|Location2.Y=2457.342mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2430.689mil|Location2.Y=2457.342mil|Absolute=True">PA0</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2367.972mil|Location2.Y=2520.334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2367.972mil|Location2.Y=2520.334mil|Absolute=True">PA02/AIN0</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2467.972mil|Location2.Y=2551.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2467.972mil|Location2.Y=2551.831mil|Absolute=True">PA03/AIN1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2556.673mil|Location2.Y=2632.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2556.673mil|Location2.Y=2632.028mil|Absolute=True">PA04/AIN4</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2588.169mil|Location2.Y=2732.028mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3932.028mil|Location1.Y=2588.169mil|Location2.Y=2732.028mil|Absolute=True">PA05/AIN5</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.272mil|Location2.X=3532.028mil|Location1.Y=2567.972mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.272mil|Location2.X=3532.028mil|Location1.Y=2567.972mil|Location2.Y=2751.634mil|Absolute=True">PA08/SDA</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.776mil|Location2.X=3532.028mil|Location1.Y=2642.871mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2887.776mil|Location2.X=3532.028mil|Location1.Y=2642.871mil|Location2.Y=2751.634mil|Absolute=True">PA09/SCL</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2462.185mil|Location2.Y=2488.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2462.185mil|Location2.Y=2488.838mil|Absolute=True">PA1</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.28mil|Location2.X=2882.933mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.28mil|Location2.X=2882.933mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True">PA10</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.784mil|Location2.X=2851.437mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.784mil|Location2.X=2851.437mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True">PA11</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2793.288mil|Location2.X=2819.941mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2793.288mil|Location2.X=2819.941mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True">PA14</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2761.792mil|Location2.X=2788.445mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2761.792mil|Location2.X=2788.445mil|Location1.Y=2687.579mil|Location2.Y=2751.634mil|Absolute=True">PA15</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2651.162mil|Location2.Y=2677.815mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2651.162mil|Location2.Y=2677.815mil|Absolute=True">PA16</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2619.666mil|Location2.Y=2646.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2619.666mil|Location2.Y=2646.319mil|Absolute=True">PA17</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2588.169mil|Location2.Y=2614.823mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.973mil|Location2.X=2752.028mil|Location1.Y=2588.169mil|Location2.Y=2614.823mil|Absolute=True">PA18</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=2752.028mil|Location1.Y=2556.673mil|Location2.Y=2583.327mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=2752.028mil|Location1.Y=2556.673mil|Location2.Y=2583.327mil|Absolute=True">PA19</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=2752.028mil|Location1.Y=2525.177mil|Location2.Y=2551.831mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=2752.028mil|Location1.Y=2525.177mil|Location2.Y=2551.831mil|Absolute=True">PA22</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3132.657mil|Location1.Y=2493.681mil|Location2.Y=2614.311mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2687.972mil|Location2.X=3132.657mil|Location1.Y=2493.681mil|Location2.Y=2614.311mil|Absolute=True">PA23</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2761.792mil|Location2.X=2788.445mil|Location1.Y=2356.87mil|Location2.Y=2420.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2761.792mil|Location2.X=2788.445mil|Location1.Y=2356.87mil|Location2.Y=2420.925mil|Absolute=True">PA27</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.784mil|Location2.X=2851.437mil|Location1.Y=2356.87mil|Location2.Y=2420.925mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.784mil|Location2.X=2851.437mil|Location1.Y=2356.87mil|Location2.Y=2420.925mil|Absolute=True">PA28</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2619.666mil|Location2.Y=2646.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2619.666mil|Location2.Y=2646.319mil|Absolute=True">PA6</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2651.162mil|Location2.Y=2677.815mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3018.682mil|Location2.X=3082.737mil|Location1.Y=2651.162mil|Location2.Y=2677.815mil|Absolute=True">PA7</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375.077mil|Location2.X=3222.972mil|Location1.Y=2074.403mil|Location2.Y=2523.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Documents\Altium\Projects\rf-19-can-module\RF19_Sensor_CAN_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2375.077mil|Location2.X=3222.972mil|Location1.Y=2074.403mil|Location2.Y=2523.774mil|Absolute=True">RESET#</acronym></a></td>
+<td class="column2">Signal Layers Only</td>
+<td class="column3"><a name="coordinate" value="0">0mils
+			</a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

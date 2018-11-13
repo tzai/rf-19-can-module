@@ -16,6 +16,3 @@ debug.log
 
 # Temporary files
 ~\$*
-
-# OutJobs
-*.OutJob

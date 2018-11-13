@@ -1,2 +1,21 @@
-debug.log 
-*\__Previews 
+### Altium ###
+# Previews Folders
+**/__Previews/
+
+# History Folders
+**/History/*
+
+# Project Logs
+Project\ Logs*/
+
+# Project Outputs
+Project\ Outputs*/
+
+# Debug log
+debug.log
+
+# Temporary files
+~\$*
+
+# OutJobs
+*.OutJob

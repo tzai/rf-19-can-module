@@ -1,9 +1,0 @@
-Output: Component Cross Reference Report
-Type  : ReportComponents
-From  : Variant [[No Variations]] of Project [RF19_Sensor_CAN_Module.PrjPcb]
-
-
-Files Generated   : 0
-Documents Printed : 0
-
-Finished Output Generation At 12:54:41 AM On 2018-10-08

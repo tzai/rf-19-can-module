@@ -230,6 +230,10 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
+DocumentPath=Project Outputs for RF19_Sensor_CAN_Module\Design Rule Check - RF19_Sensor_CAN_Module.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
 DocumentPath=Project Outputs for RF19_Sensor_CAN_Module\Net Status - RF19_Sensor_CAN_Module.html
 DItemRevisionGUID=
 
@@ -415,7 +419,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Samsung SCX-3400 Series (USB001)
+TargetPrinter=Samsung SCX-3400 Series (Copy 1)
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
